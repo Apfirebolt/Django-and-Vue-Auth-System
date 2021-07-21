@@ -1,6 +1,6 @@
 <template>
   <div class="shadow overflow-y-visible border-b border-gray-200 sm:rounded-lg my-3">
-    <table class="min-w-full divide-y divide-gray-200">
+    <table v-if="fileUsers.length" class="min-w-full divide-y divide-gray-200">
       <thead>
         <tr>
           <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
@@ -34,6 +34,9 @@
         </tr>
       </tbody>
     </table>
+    <p v-else class="text-center text-lg my-3 p-3">
+      No file user data exists
+    </p>
   </div>
 </template>
 <script>

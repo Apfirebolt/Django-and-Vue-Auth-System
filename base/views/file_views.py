@@ -11,8 +11,7 @@ from base.serializers import DirectoryUserSerializer
 @permission_classes([IsAuthenticated])
 def uploadFile(request):
     if request.method == 'GET':
-        directory_users = DirectoryUsers.objects.all()
-        # directory_users = DirectoryUsers.objects.filter(uploaded_by_id=request.user.id)
+        directory_users = DirectoryUsers.objects.filter(uploaded_by_id=request.user.id)
         serializer = DirectoryUserSerializer(directory_users, many=True)
         return Response({
             'detail': 'All directory users fetched successfully',

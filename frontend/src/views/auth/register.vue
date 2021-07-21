@@ -155,6 +155,8 @@
   </div>
 </template>
 <script>
+import axios from 'axios';
+
 export default {
   name: 'Register',
   data() {
@@ -165,7 +167,7 @@ export default {
   },
   methods: {
     async attemptSignUp() {
-      const response = await this.$http.post('users/register/', this.user);
+      const response = await axios.post('http://localhost:8000/api/users/register/', this.user);
       if (response) {
         this.$toast.show({
           content: 'Your have been registered successfully, please login and continue.',
