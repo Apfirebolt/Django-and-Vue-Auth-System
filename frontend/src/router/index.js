@@ -32,6 +32,9 @@ const routes = [
   },
   {
     path: '/dashboard',
+    meta: {
+      requiresAuth: true,
+    },
     component: DashboardLayout,
     children: [
       {

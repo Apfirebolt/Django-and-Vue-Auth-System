@@ -1,6 +1,6 @@
 <template>
   <div>
-    <hero-section v-if="userData" :user="userData" />
+    <hero-section v-if="$currentUser" :user="$currentUser" />
   </div>
 </template>
 
@@ -11,24 +11,6 @@ export default {
   name: 'Dashboard',
   components: {
     HeroSection,
-  },
-  data() {
-    return {
-      userData: null,
-    };
-  },
-  mounted() {
-    this.getUserData();
-  },
-  methods: {
-    async getUserData() {
-      this.$loading.show();
-      const response = await this.$http.get('users/profile');
-      if (response) {
-        this.userData = response;
-      }
-      this.$loading.hide();
-    },
   },
 };
 </script>

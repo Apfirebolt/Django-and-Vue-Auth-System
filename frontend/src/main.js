@@ -30,6 +30,19 @@ Vue.prototype.$loading = {
   },
 };
 
+router.beforeEach(async (to, from, next) => {
+  const authIgnoreRoutes = ['Login', 'Register', 'Home'];
+  if (authIgnoreRoutes.includes(to.name)) {
+    next();
+  } else {
+    const userProfile = await Vue.prototype.$http.get('users/profile/');
+    if (userProfile) {
+      Vue.prototype.$currentUser = userProfile;
+      next();
+    }
+  }
+});
+
 new Vue({
   router,
   render: (h) => h(App),

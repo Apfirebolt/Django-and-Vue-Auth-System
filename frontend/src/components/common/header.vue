@@ -42,6 +42,7 @@ export default {
   methods: {
     attemptLogout() {
       window.localStorage.removeItem('access_token');
+      this.$currentUser = null;
       this.$bus.emit('add_toast', {
         content: 'Logged out successfully, please login to continue',
         type: 'success',
