@@ -57,14 +57,22 @@ export default {
   },
   methods: {
     async uploadFile(fileData) {
-      const data = new FormData();
-      data.append('file', fileData);
-      const response = await this.$http.post('files/', data);
-      if (response) {
+      const fileExtension = fileData.name.split('.').pop();
+      if (fileExtension !== 'json') {
         this.$bus.emit('add_toast', {
-          content: 'User JSON file successfully uploaded.',
-          type: 'success',
+          content: 'Only json files are allowed.',
+          type: 'danger',
         });
+      } else {
+        const data = new FormData();
+        data.append('file', fileData);
+        const response = await this.$http.post('files/', data);
+        if (response) {
+          this.$bus.emit('add_toast', {
+            content: 'User JSON file successfully uploaded.',
+            type: 'success',
+          });
+        }
       }
       this.isFileUploadModalOpened = false;
     },
