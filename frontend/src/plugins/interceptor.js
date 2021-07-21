@@ -3,7 +3,7 @@ import events from './events';
 
 let baseURL = process.env.VUE_APP_API_URL;
 if (!baseURL) {
-  baseURL = '/api';
+  baseURL = 'http://localhost:8000/api/';
 }
 
 function getErrorMessage(response) {
@@ -20,7 +20,7 @@ httpClient.interceptors.request.use(
   async (config) => {
     const newConfig = config;
     const token = window.localStorage.getItem('access_token');
-    newConfig.headers.Authorization = token;
+    newConfig.headers.Authorization = `Bearer ${token}`;
     return newConfig;
   },
   (error) => {

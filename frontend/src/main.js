@@ -1,15 +1,19 @@
 import Vue from 'vue';
 import VueTailwind from 'vue-tailwind/dist/full';
+import { ValidationProvider, ValidationObserver } from 'vee-validate';
 import events from './plugins/events';
 import App from './App.vue';
 import router from './router';
 import axios from './plugins/interceptor';
+import './plugins/validate';
 import './assets/tailwind.css';
 import VueTailwindSettings from './plugins/vue-tailwind';
 
 Vue.config.productionTip = false;
 
 Vue.use(VueTailwind, VueTailwindSettings);
+Vue.component('ValidationProvider', ValidationProvider);
+Vue.component('ValidationObserver', ValidationObserver);
 Vue.prototype.$http = axios;
 Vue.prototype.$bus = events;
 Vue.prototype.$toast = {
@@ -25,22 +29,6 @@ Vue.prototype.$loading = {
     Vue.prototype.$bus.emit('hide_loading');
   },
 };
-
-// router.beforeEach(async (to, from, next) => {
-//   if (to.matched.some((record) => record.meta.ignoreAuth)) {
-//     const token = window.localStorage.getItem('access_token');
-//     if (token) {
-//       next({ name: 'Home' });
-//     } else {
-//       next();
-//     }
-//   } else {
-//     const me = await Vue.prototype.$http.get('me');
-//     if (me && me.id) {
-//       Vue.prototype.$currentUser = me;
-//     }
-//   }
-// });
 
 new Vue({
   router,
