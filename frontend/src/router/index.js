@@ -39,6 +39,11 @@ const routes = [
         name: 'Dashboard',
         component: () => import('../views/dashboard.vue'),
       },
+      {
+        path: 'files',
+        name: 'FileUserList',
+        component: () => import('../views/files/file-list.vue'),
+      },
     ],
   },
 ];

@@ -1,7 +1,6 @@
 <template>
   <div>
     <header-component />
-    <h1>Dash</h1>
     <router-view />
     <footer-component />
   </div>

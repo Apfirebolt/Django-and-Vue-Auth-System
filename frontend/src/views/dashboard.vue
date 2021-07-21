@@ -1,29 +1,33 @@
 <template>
   <div>
-    <p class="text-blue-500">
-      Dashboard Page
-    </p>
+    <hero-section v-if="userData" :user="userData" />
   </div>
 </template>
 
 <script>
+import HeroSection from '../components/common/hero-section.vue';
+
 export default {
   name: 'Dashboard',
+  components: {
+    HeroSection,
+  },
   data() {
     return {
       userData: null,
     };
   },
   mounted() {
-    console.log('Dashboard page ');
     this.getUserData();
   },
   methods: {
     async getUserData() {
+      this.$loading.show();
       const response = await this.$http.get('users/profile');
       if (response) {
-        console.log('Response ', response);
+        this.userData = response;
       }
+      this.$loading.hide();
     },
   },
 };

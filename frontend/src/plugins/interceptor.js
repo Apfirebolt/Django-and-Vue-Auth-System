@@ -39,15 +39,15 @@ httpClient.interceptors.response.use((response) => {
   events.emit('hide_loading');
   if (error.response) {
     if (error.response.status === 401 || error.response.status === 403) {
-      window.localStorage.removeItem('access_token');
-      if (window.location.pathname !== '/login') {
-        window.location.href = '/login';
-      } else {
-        events.emit('add_toast', {
-          content: getErrorMessage(error.response),
-          type: 'danger',
-        });
-      }
+      // window.localStorage.removeItem('access_token');
+      // if (window.location.pathname !== '/login') {
+      //   window.location.href = '/login';
+      // } else {
+      //   events.emit('add_toast', {
+      //     content: getErrorMessage(error.response),
+      //     type: 'danger',
+      //   });
+      // }
     } else {
       events.emit('add_toast', {
         content: getErrorMessage(error.response),
