@@ -96,7 +96,7 @@ ROOT_URLCONF = 'django_react_auth.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
+        'DIRS': [BASE_DIR / 'frontend/dist']
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -121,7 +121,7 @@ DATABASES = {
        'ENGINE': 'django.db.backends.postgresql',
        'NAME': 'django_react_auth',
        'USER': 'postgres',
-       'PASSWORD': 'pass12345',
+       'PASSWORD': 'pass123',
        'HOST': 'localhost',
        'PORT': '5432'
    }
@@ -168,7 +168,7 @@ MEDIA_URL = '/images/'
 
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
-    BASE_DIR / 'frontend/build/static'
+    BASE_DIR / 'frontend/dist/static'
 ]
 
 MEDIA_ROOT = BASE_DIR / 'static/images'

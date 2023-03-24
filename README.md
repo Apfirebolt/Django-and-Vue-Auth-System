@@ -16,7 +16,7 @@ https://tailwindcomponents.com/
 
 ## Authors
 
-* **Amit Prafulla (APFirebolt)** - (http://amitprafull.com/)
+* **Amit Prafulla (APFirebolt)** - (http://apgiiit.com/)
 
 ## Project setup
 
@@ -35,6 +35,12 @@ python manage.py makemigrations
 python manage.py migrate
 python manage.py runserver
 ```
+
+## Updates 
+
+- 24/3/23
+
+Front-end is no longer compatible with the latest version of Node which is 18 at the time of updating this project. Use NVM and LTS version of Node 14 for running this project. Might consider conversion to Vite in future.
 
 ## Project Screenshots
 
