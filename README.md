@@ -59,3 +59,47 @@ The main dashboard page.
 This shows page where data read from file uploaded would be displayed.
 
 ![alt text](./screenshots/2.png)
+
+## Serve Vue build with Django
+
+Following static file settings are used through which Django would serve the index.html generated during build process.
+
+```
+python manage.py collectstatic
+```
+
+These are the settings used in Django settings file
+
+```
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [BASE_DIR / 'client/dist']
+        ,
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
+STATIC_URL = '/static/'
+MEDIA_URL = '/images/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+    BASE_DIR / 'client/dist/assets'
+]
+
+MEDIA_ROOT = BASE_DIR / 'static/images'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+CORS_ALLOW_ALL_ORIGINS = True
+```
+
+Notice that we have changed the templates folder to direct dist folder inside the client app.
