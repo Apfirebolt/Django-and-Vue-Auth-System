@@ -13,3 +13,14 @@
   </section>
     <!-- Pagination -->
 </template>
+
+<script setup>
+import { ref, computed } from "vue";
+import { useAuth } from "../composables/useAuth";
+
+const { user } = useAuth();
+
+console.log("Current User:", user.value);
+
+
+</script>

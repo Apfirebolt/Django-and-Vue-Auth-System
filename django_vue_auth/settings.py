@@ -47,9 +47,9 @@ INSTALLED_APPS = [
 ]
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
+    # 'DEFAULT_AUTHENTICATION_CLASSES': (
+    #     'rest_framework_simplejwt.authentication.JWTAuthentication',
+    # )
 }
 
 
@@ -119,7 +119,7 @@ WSGI_APPLICATION = 'django_vue_auth.wsgi.application'
 DATABASES = {
    'default': {
        'ENGINE': 'django.db.backends.postgresql',
-       'NAME': 'django_react_auth',
+       'NAME': 'django_vue_auth',
        'USER': 'postgres',
        'PASSWORD': 'pass123',
        'HOST': 'localhost',

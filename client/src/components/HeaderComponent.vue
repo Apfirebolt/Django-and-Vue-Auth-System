@@ -14,18 +14,14 @@
             <div class="flex space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
               
-              <router-link
-                to="/"
-                href="#"
-                class="text-gray-300 hover:bg-primary-100 transition-all duration-200 hover:text-white px-3 py-2 rounded-md font-medium"
-                >Home</router-link
-              >
-              
-              <router-link
-                to="/about"
-                class="text-gray-300 hover:bg-primary-100 transition-all duration-200 hover:text-white px-3 py-2 rounded-md font-medium"
-                >About</router-link
-              >
+              <div v-for="link in links" :key="link.name">
+                <a
+                  :href="link.href"
+                  class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-200"
+                >
+                  {{ link.name }}
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -45,17 +41,14 @@
 
     <DisclosurePanel class="sm:hidden">
       <div class="px-2 pt-2 pb-3 space-y-1">
-        <router-link
-          to="/"
-          class="text-white block px-3 py-2 rounded-md text-base font-medium"
-          >Home</router-link
-        >
-      
-        <router-link
-          to="/about"
-          class="text-white block px-3 py-2 rounded-md text-base font-medium"
-          >About</router-link
-        >
+        <div v-for="link in links" :key="link.name">
+          <a
+            :href="link.href"
+            class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition-all duration-200"
+          >
+            {{ link.name }}
+          </a>
+        </div>
       </div>
     </DisclosurePanel>
   </Disclosure>
@@ -68,6 +61,12 @@ import { MenuIcon, XIcon } from "@heroicons/vue/outline";
 
 const isDarkMode = ref(false);
 const isScrolledDown = ref(false);
+const links = ref([
+  { name: 'Home', href: '/' },
+  { name: 'About', href: '/about' },
+  { name: 'Login', href: '/login' },
+  { name: 'Register', href: '/register' },
+]);
 
 const setDarkMode = (value) => {
   isDarkMode.value = value;
