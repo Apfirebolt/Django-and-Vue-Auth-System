@@ -44,7 +44,6 @@ export function useAuth() {
     error.value = null;
     try {
       const response = await axios.post('/api/users/login/', { username, password });
-        console.log("Login response data:", response.data);
         user.value._id = response.data.id;
         user.value.username = response.data.username;
         user.value.email = response.data.email;

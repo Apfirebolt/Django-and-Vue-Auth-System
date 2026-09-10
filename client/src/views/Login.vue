@@ -57,6 +57,11 @@
 <script setup>
 import { ref } from "vue";
 import { useAuth } from "../composables/useAuth";
+import { useData } from "../composables/useData";
+
+const { data, fetchData } = useData();
+
+console.log("Data Composable:", data.value);
 
 const username = ref("");
 const password = ref("");

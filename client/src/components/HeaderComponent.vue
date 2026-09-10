@@ -57,7 +57,7 @@
 <script setup>
 import { ref, watch, onMounted } from 'vue';
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
-import { MenuIcon, XIcon } from "@heroicons/vue/outline";
+import { Bars3Icon, XMarkIcon } from "@heroicons/vue/24/outline";
 
 const isDarkMode = ref(false);
 const isScrolledDown = ref(false);

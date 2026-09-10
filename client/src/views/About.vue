@@ -17,6 +17,12 @@
 <script setup>
 import { ref, computed } from "vue";
 import { useAuth } from "../composables/useAuth";
+import { useData } from "../composables/useData";
+
+const { data, error, fetchData } = useData();
+
+// This will now run the fetch ONLY IF 'data' is currently null.
+fetchData();
 
 const { user } = useAuth();
 

@@ -2,9 +2,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-primary-100: #5B85AA;
+  --color-primary-200: #171123;
+  --color-primary-300: #414770;
+
+  --color-secondary-100: #4C191B;
+  --color-secondary-200: #963D5A;
+  --color-secondary-300: #ECFFF8;
+}
 
 body {
   font-family: 'Lato', sans-serif;
